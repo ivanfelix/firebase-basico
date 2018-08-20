@@ -22,8 +22,14 @@ export class HeroesComponent implements OnInit {
 
   eliminarHeroe(id:string){
     this.heroesService.eliminarHeroes(id)
-    .subscribe(
-      res => console.log(res)
+    .subscribe(res =>{
+
+      if(res){
+        res => console.log(res)
+      }else{
+        delete this.heroes[id];
+      }  
+    }
     )
   }
 
